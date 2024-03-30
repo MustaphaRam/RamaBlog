@@ -3,16 +3,20 @@ const jwt = require("jsonwebtoken");
 
 // get all posts or by category
 const getPosts = async (req, res) => {
-  const q = req.query.cat
-    ? "SELECT * FROM posts WHERE cat=?"
-    : "SELECT * FROM posts";
+  try {
+    const q = req.query.cat
+      ? "SELECT * FROM posts WHERE cat=? ORDER BY `date` DESC"
+      : "SELECT * FROM posts ORDER BY `date` DESC";
 
-  db.query(q, [req.query.cat], (err, data) => {
-    if (err) return res.status(500).send(err);
+    db.query(q, [req.query.cat], (err, data) => {
+      if (err) return res.status(500).json(err);
 
-    // return data
-    return res.status(200).json(data);
-  });
+      // return data
+      return res.status(200).json(data);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 // get post by id
