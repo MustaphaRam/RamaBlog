@@ -67,8 +67,6 @@ app.use("/api/user/", userRoute);
 
 
 
-
-
 // first route
 app.get('/api', (req, res) => {
   res.json('Welcome To Rama Blog!');
