@@ -7,8 +7,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Write from "./pages/Write";
 import Home from "./pages/Home";
-import Single from "./pages/Single";
 import Navbar from "./components/Navbar";
+import Single from "./pages/Single";
+import Profile from "./pages/Profile";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import "./style.scss";
@@ -40,8 +41,16 @@ const router = createBrowserRouter([
         element: <Single />,
       },
       {
+        path: "/myposts/?id=?",
+        element: <Home />,
+      },
+      {
         path: "/write",
         element: <Write />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/about",

@@ -16,10 +16,11 @@ $lightGreen: #b9e7e7;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       height: 100vh;
       background-color: $lightGreen;
-
+      .logo {
+        margin: 40px 0;
+      }
       h1 {
         font-size: 20px;
         color: teal;
@@ -149,14 +150,21 @@ $lightGreen: #b9e7e7;
 
         .post {
           display: flex;
-          gap: 100px;
+          gap: 50px;
+          animation-name: example;
+          animation-duration: 2s;
+          
+          @keyframes example {
+            from {opacity: 0;}
+            to {opacity: 1;}
+          }
 
           &:nth-child(2n + 1) {
             flex-direction: row-reverse;
           }
 
           .img {
-            flex: 2;
+            /* flex: 2; */
             position: relative;
 
             &::after {
@@ -183,8 +191,18 @@ $lightGreen: #b9e7e7;
             flex-direction: column;
             justify-content: space-between;
 
-            h1 {
+            /* h1 {
               font-size: 48px;
+            } */
+
+            .cat {
+              font-size: 14px;
+              background-color: lightgray;
+              width: fit-content;
+              padding: 0 10px;
+              border-radius: 15px;
+              margin: 10px 0;
+              text-transform: uppercase; 
             }
 
             p {
@@ -217,10 +235,17 @@ $lightGreen: #b9e7e7;
       gap: 50px;
 
       .content {
-        flex: 5;
+        /* flex: 5; */
         display: flex;
         flex-direction: column;
         gap: 30px;
+        animation-name: example;
+        animation-duration: 2.5s;
+
+        @keyframes example {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
 
         img {
           width: 100%;
