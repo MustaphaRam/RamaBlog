@@ -49,11 +49,6 @@ const Navbar = () => {
                 FOOD
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="link" to="/?cat=food">
-                FOOD
-              </Link>
-            </li>
             
             { currentUser ? 
               <>
@@ -67,7 +62,8 @@ const Navbar = () => {
                     {currentUser?.username}
                   </Link>
                   <ul className="dropdown-menu">
-                    <li><Link className="link dropdown-item" to={'/profile/'+currentUser.id} >{currentUser?.username}</Link></li>
+                    <li><Link className="link dropdown-item" to='/profile' >Profile</Link></li>
+                    <li><Link className="link dropdown-item" to={'/myposts/?id='+currentUser.id} >My Posts</Link></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><Link className="link dropdown-item" onClick={logout}>Logout</Link></li>
                   </ul>
