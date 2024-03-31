@@ -82,6 +82,7 @@ const Write = () => {
           <input
             style={{ display: "none" }}
             type="file"
+            accept=".png, .jpg, .jpeg"
             id="file"
             name=""
             onChange={(e) => setFile(e.target.files[0])}

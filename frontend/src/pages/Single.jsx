@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Edit from "../img/edit.png";
 import Delete from "../img/delete.png";
+import userIcon from "../img/user.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
 import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../auth/authContext";
-//import DOMPurify from "dompurify";
+import DOMPurify from "dompurify";
 
 const Single = () => {
   const [post, setPost] = useState({});
@@ -31,7 +32,7 @@ const Single = () => {
     };
     fetchData();
   }, [postId]);
-
+    
   // delete post by id
   const handleDelete = async ()=>{
     try {
@@ -43,20 +44,19 @@ const Single = () => {
   }
 
   // function parse to forma html
-  const getText = (html) =>{
+  /* const getText = (html) =>{
     const doc = new DOMParser().parseFromString(html, "text/html")
     return doc.body.textContent
-  }
+  } */
 
   return (
-    <div className="single">
-      <div className="content">
+    <div className="single row">
+      <div className="content col-md-8">
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          {post.userImg && <img
-            src={post.userImg}
-            alt=""
-          />}
+          {post.userImg ? <img src={post.userImg} alt="" />
+            : <img src={userIcon} alt="" />
+          }
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>{/* in here used moment library */}
@@ -71,14 +71,14 @@ const Single = () => {
           )}
         </div>
         <h1>{post.title}</h1>
-        {/* <p
+        <p
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.description),
           }}
-        ></p> */}
-        <p>{getText(post.description)}</p>
+        ></p>
+        {/* <p>{getText(post.description)}</p> */}
       </div>
-      <Menu cat={post.cat}/>
+      <Menu className="col-md-4" cat={post.cat}/>
     </div>
   );
 };

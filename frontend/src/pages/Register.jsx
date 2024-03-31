@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from '../components/Spinner';
@@ -45,6 +46,9 @@ const Register = () => {
 
   return (
     <div className='auth'>
+      <div className="logo">
+        <img src={logo} alt="" width={150}/>
+      </div>
       <h1>Register</h1>
       <form onSubmit={handleSubmit} className='col-md-6'>
         <input type="username" name='username' className="form-control" onChange={handleChange} placeholder="username" required />

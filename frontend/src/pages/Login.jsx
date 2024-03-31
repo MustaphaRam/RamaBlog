@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import logo from "../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/authContext";
 import Spinner from '../components/Spinner';
@@ -44,6 +45,9 @@ const Login = () => {
   };
   return (
     <div className='auth'>
+      <div className="logo">
+        <img src={logo} alt="" width={150}/>
+      </div>
       <h1>Login</h1>
       <form onSubmit={handleSubmit} className='col-md-6'>
         <input type="username" name='username' className="form-control" onChange={handleChange} placeholder="username" required />
