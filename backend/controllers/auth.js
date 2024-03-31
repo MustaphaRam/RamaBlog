@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { validationResult } = require('express-validator');
 const { query } = require("express");
 
+// register
 const register = async (req, res) => {
   
   // VALIDATION REQUEST
@@ -36,6 +37,7 @@ const register = async (req, res) => {
   });
 };
 
+// login
 const login = async (req, res) => {
   
   // VALIDATION REQUEST

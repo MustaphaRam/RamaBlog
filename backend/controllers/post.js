@@ -26,8 +26,17 @@ const getPost = async (req, res) => {
 
   db.query(q, [req.params.id], (err, data) => {
     if (err) return res.status(500).json(err);
-
     return res.status(200).json(data[0]);
+  });
+};
+
+// get all posts of user
+const getPostsByUserId = async (req, res) => {
+  const q = "SELECT * FROM posts p WHERE p.uid = ? ORDER BY `date` DESC"
+
+  db.query(q, [req.params.id], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json(data);
   });
 };
 
@@ -105,4 +114,4 @@ const updatePost = async (req, res) => {
   });
 };
 
-module.exports = {getPosts, getPost, addPost, updatePost, deletePost, };
+module.exports = {getPosts, getPostsByUserId, getPost, addPost, updatePost, deletePost, };
