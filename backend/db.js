@@ -7,5 +7,13 @@ const db = mysql.createConnection({
     database : 'ramblogdb'
 });
 
+db.connect((err) => {
+    if(err){
+        throw err
+    } else {
+        console.log("connect db mysql");
+    }
+});
+
 module.exports = db;
 
