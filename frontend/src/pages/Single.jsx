@@ -4,6 +4,7 @@ import Delete from "../img/delete.png";
 import userIcon from "../img/user.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
+import Comment from "../components/Comment";
 import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
@@ -35,6 +36,8 @@ const Single = () => {
     
   // delete post by id
   const handleDelete = async ()=>{
+    const confirmed = window.confirm("Are you sure you want to delete this post?");
+    if (!confirmed) return;
     try {
       await axios.delete(`/posts/${postId}`);
       navigate("/")
@@ -54,9 +57,11 @@ const Single = () => {
       <div className="content col-md-8">
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          {post.userImg ? <img src={post.userImg} alt="" />
-            : <img src={userIcon} alt="" />
-          }
+          {post.userImg ? (
+            <img src={post.userImg} alt="" />
+          ) : (
+            <img src={userIcon} alt="" />
+          )}
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>{/* in here used moment library */}
@@ -77,6 +82,10 @@ const Single = () => {
           }}
         ></p>
         {/* <p>{getText(post.description)}</p> */}
+
+        <div className="comments">
+          <Comment postId={post.id} userId={currentUser.id} />
+        </div>
       </div>
       <Menu className="col-md-4" cat={post.cat}/>
     </div>
