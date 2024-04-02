@@ -4,6 +4,7 @@ const db = require('./db.js');
 const userRoute = require('./routes/users.js');
 const authRotes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
+const commentRoute = require('./routes/comments.js');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 
@@ -64,6 +65,9 @@ app.use("/api/auth/", authRotes);
 
 // routes user
 app.use("/api/user/", userRoute);
+
+// routes comments
+app.use("/api/comments/", commentRoute);
 
 
 
