@@ -421,5 +421,69 @@ $lightGreen: #b9e7e7;
         }
       }
     }
+
+
+    // comments
+
+    .comments {
+      .addComment {
+        .rama_btn {
+          float: right;
+          width: max-content;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+          background-color: white;
+          border: 1px solid teal;
+          color: teal;
+    
+          &:hover {
+            border: 1px solid white;
+            background-color: $lightGreen;
+            color: black;
+          }
+          
+        }
+
+      }
+
+      .comment{
+        button {
+          border: 0;
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
+        .btn_save {
+          background-color: #b9e7e7;
+          margin-right: 10px;
+        }
+        .btn_cancel {
+          background-color: #ff8d8d;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .userComment {
+          display: flex;
+          flex-direction: row;
+        }
+        .commentCont{
+          font-size: 14px;
+
+          .edit-del{
+            img {
+              width: 20px;
+              height: 20px;
+            }
+            span {
+              margin-right: 8px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 }
