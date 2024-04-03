@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Spinner from '../components/Spinner';
@@ -114,8 +115,9 @@ function Comments({ postId, userId }) {
             
         {isLoading && <p>Loading comments...</p>}
         {error && <p>Error fetching comments: {error.message}</p>}
+        {!comments.length && <p className='mt-2'>No comments</p>}
         {comments.length > 0 && (
-            <div className="container my-5 py-5">
+            <div className="container my-5 py-4">
                 <h5>Comments</h5>
                 <div className="row flex ">
                     <div className="col-md-11">
@@ -124,11 +126,8 @@ function Comments({ postId, userId }) {
                             <div className="card w-100 shadow-sm mb-2 bg-body-tertiary rounded">
                                 <div className="card-body p-3">
                                     <div className='userComment pb-2'>
-                                        { comment.img ? (
-                                          <img className="rounded-circle shadow-1-strong me-3"  src={comment.img} alt="avatar" width="50" height="50" />
-                                        ) : (
-                                          <img className="rounded-circle shadow-1-strong me-3" img src={userIcon} alt="avatar" width="50" height="50" />
-                                        )}                                         
+                                        <img className="rounded-circle shadow-1-strong me-3"  src={comment.img ? `../upload/${comment?.img}` : userIcon} alt="avatar" width="50" height="50" />
+                                                                              
                                         <div className=''>
                                             <h5>{ comment.username }</h5>
                                             <span className="small">{moment(comment.created_at).fromNow()}</span>
