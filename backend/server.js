@@ -36,35 +36,28 @@ app.post('/api/upload', upload.single('file'), function (req, res, next) {
   res.status(200).json(file.filename);
 });
 
-/* // check connection
-db.connect(function(err) {
-  if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
-    return;
+
+// image user
+app.post('/api/user/imageUser', upload.single('image'), function (req, res, next) {
+  if (!req.file) {
+    return res.status(400).json({ message: 'No image uploaded' });
   }
-
-  console.log('Connected to MySQL database as id ' + db.threadId);
-  
-  // Close the connection after checking
-  db.end(function(err) {
-    if (err) {
-      console.error('Error closing MySQL connection: ' + err.stack);
-      return;
-    }
-    console.log('MySQL connection closed.');
-  });
-}); */
+  const file = req.file;
+  console.log("file has ben save : "+file.filename);
+  res.status(200).json(file.filename);
+});
 
 
-// routes post
-// localhost:8800/api/posts/route
-app.use("/api/posts/", postRoutes);
+
+// localhost:8800/...
+// routes user
+app.use("/api/user/", userRoute);
 
 // routes auth
 app.use("/api/auth/", authRotes);
 
-// routes user
-app.use("/api/user/", userRoute);
+// routes post
+app.use("/api/posts/", postRoutes);
 
 // routes comments
 app.use("/api/comments/", commentRoute);
