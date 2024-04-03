@@ -34,14 +34,15 @@ const Login = () => {
     } catch (err) {
       console.log(err);
       if(err.response.status === 400) {
-        setError(err.response.data);
+        console.error(err);
+        setError(err.response.data || err.response.data.errors[0].msg);
       };
       if (err.response.status === 409 || err.response.status === 404){
         setError(err.response.data);
       }
+    } finally {
+      setspinner(false);
     }
-
-    setspinner(false);
   };
   return (
     <div className='auth'>
