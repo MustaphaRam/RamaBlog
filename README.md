@@ -4,7 +4,10 @@ Rama Blog: A Solo Web Development Journey
 
 
 ## Project Description:
-Rama Blog is a platform for creating and sharing posts with images. Users can potentially register and create accounts in the future (depending on next steps).
+It is a project that is a web application, named Rama blog, which is a platform for creating and sharing posts with photos, with the possibility of adding comments to posts.
+This project aims to exchange knowledge and ideas on various topics, including technology, science, arts and current events.
+
+So users can register and create accounts on the platform, create their own content, interact with posts by comments.
 
 
 ## Technical Stack:
