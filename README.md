@@ -58,3 +58,7 @@ Developing Rama Blog as a solo project has been a rewarding experience. You've s
 This file contains the name of the main author of this project
 
 Mustapha Ramadan https://github.com/MustaphaRam
+
+## Portfolio
+
+https://docs.google.com/presentation/d/1nY5gjoXzNcY41RY7pYzM_vqFYx-EnD5itgfBW2wHu7U/edit?usp=sharing
